@@ -31,8 +31,29 @@ public class Player : MonoBehaviour {
             if(Input.GetKeyDown("space") && canJump)
             {
                 rb.velocity = new Vector3(rb.velocity.x, jumpHeight, 0);
-                canJump - false;
+                canJump = false;
             }
         }
 	}
+
+    void ClimbingWallStart()
+    {
+        runMode = false;
+        rb.simulated = false;
+    }
+
+    void ClimbingWallEnd()
+    {
+        runMode = true;
+        rb.velocity = new Vector3(0, 0, 0);
+        rb.simulated = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "ground")
+        {
+            canJump = true;
+        }
+    }
 }
