@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Assets\CameraFollow.cs" />
     <Compile Include="Assets\ClimbCatcher.cs" />
+    <Compile Include="Assets\Controller.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\WallScript.cs" />
   </ItemGroup>
