@@ -56,4 +56,12 @@ public class Player : MonoBehaviour {
             canJump = true;
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ground")
+        {
+            canJump = false;
+        }
+    }
 }

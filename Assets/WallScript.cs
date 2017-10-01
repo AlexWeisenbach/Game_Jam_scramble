@@ -6,6 +6,8 @@ public class WallScript : MonoBehaviour {
 
     public GameObject player;
 
+    public GameObject controller;
+
     public GameObject[] locations;
     int currentLocation = 0;
 
@@ -30,6 +32,7 @@ public class WallScript : MonoBehaviour {
                 //print("got here2");
                 climbing = false;
                 player.SendMessage("ClimbingWallEnd");
+                controller.SendMessage("FinishClimbing");
                 currentLetter = 0;
                 currentLocation = 0;
             }
@@ -38,6 +41,7 @@ public class WallScript : MonoBehaviour {
                 currentLocation++;
                 currentLetter++;
                 player.transform.position = locations[currentLocation].transform.position;
+                controller.SendMessage("UpdateClimbing");
                 //print("got here1");
             }
         }
@@ -47,6 +51,7 @@ public class WallScript : MonoBehaviour {
     {
         player.gameObject.SendMessage("ClimbingWallStart");
         climbing = true;
+        controller.SendMessage("StartClimbing", currentWord);
         player.transform.position = locations[currentLocation].transform.position;
     }
     /*private void OnCollisionEnter(Collision collision)
