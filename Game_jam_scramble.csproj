@@ -89,6 +89,7 @@
     <Compile Include="Assets\Controller.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\WallScript.cs" />
+    <Compile Include="Assets\timerPickup.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

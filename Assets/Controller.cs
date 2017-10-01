@@ -11,19 +11,20 @@ public class Controller : MonoBehaviour {
     public int currentPos;
 
     public Text timer;
-    public int time;
     public float startTime;
+    public float time;
     public int maxTime;
 
 	// Use this for initialization
 	void Start () {
         textDisplay.text = go;
-        startTime = Time.time;
+        time = maxTime;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        timer.text = (maxTime - (int)(Time.time - startTime)).ToString();
+        time = time - Time.deltaTime;
+        timer.text = ((int)(time)).ToString();
 	}
 
     void StartClimbing(string word)
@@ -42,5 +43,10 @@ public class Controller : MonoBehaviour {
     void FinishClimbing()
     {
         textDisplay.text = go;
+    }
+
+    void IncreaseTime(int t)
+    {
+        time += t;
     }
 }
