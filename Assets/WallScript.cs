@@ -41,6 +41,8 @@ public class WallScript : MonoBehaviour {
                 currentLocation++;
                 currentLetter++;
                 player.transform.position = locations[currentLocation].transform.position;
+                player.transform.rotation = locations[currentLocation].transform.rotation;
+                player.transform.localScale = new Vector3(Mathf.Sign(locations[currentLocation].transform.localScale.x)* player.transform.localScale.x, player.transform.localScale.y, 1);
                 controller.SendMessage("UpdateClimbing");
                 //print("got here1");
             }
